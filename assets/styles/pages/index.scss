@@ -1,0 +1,138 @@
+@import "../variables";
+@import "../mixins";
+
+@keyframes marquee {
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+section.hero {
+  .hero__image {
+    padding: 4rem 0.5rem;
+    img {
+      display: block;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+  }
+
+  article.hero__text {
+    h1 {
+      @include flex(flex-start);
+      color: $primary;
+      font-size: 3rem;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      svg {
+        width: 3rem;
+        margin-left: 1rem;
+      }
+    }    
+
+    p {
+      margin: 1rem 0;
+      a {
+        border-bottom: 1px solid rgba($color: $primary, $alpha: 0.75);
+        &::before {
+          transition: all 200ms ease-in-out;
+        }
+      }
+
+      > span {
+        font-weight: 500;
+        color: $dark;
+      }
+    }
+
+    .cta {
+      @include flex(flex-start, flex-start);
+      flex-direction: column;
+      padding: 1rem 0;
+      a.btn {
+        padding: 0.4rem 0.3rem;
+        padding-left: 0.8rem;
+        margin: 0 0 1.5rem;
+      }
+    }
+
+    .marquee {
+      animation: marquee 2000ms linear infinite;
+      text-transform: uppercase;
+      > span {
+        display: block;
+        margin: 0 0.5rem;
+      }
+
+      &:hover {
+        animation-play-state: paused;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 540px) {
+  section.hero {
+    padding: 0 4%;
+    .hero__image {
+      padding: 4rem 1rem;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  section.hero {
+    article.hero__text {
+      .cta {
+        flex-direction: row;
+        padding-top: 1rem;
+        a.btn {
+          padding: 0.5rem;
+          padding-left: 1rem;
+          margin-right: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  section.hero {
+    padding: unset;
+    padding-left: calc(40% + 3rem);
+    padding-top: 4rem;    
+    padding-right: 1rem;
+    .hero__image {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 2.5rem;
+      padding: 8rem 2rem;
+      width: 38%;
+    }
+
+    article.hero__text {
+      .cta {
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1065px) {
+  section.hero {
+    article.hero__text {
+      .cta {
+        flex-direction: row;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  section.hero {
+    padding: unset;
+    padding-left: calc(40% + 3rem);
+    padding-top: 3rem;
+  }
+}
