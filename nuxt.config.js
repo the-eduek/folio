@@ -15,6 +15,13 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ],
+    script: [
+      { 
+        src: 'https://cdn.volument.com/beta/volument.js',
+        async: true,
+        token: "04367be50b"
+      }
     ]
   },
 
