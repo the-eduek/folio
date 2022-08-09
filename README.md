@@ -1,4 +1,4 @@
-# folio2
+# folio
 
 ## Build Setup
 
